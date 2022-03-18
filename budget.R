@@ -31,8 +31,9 @@ budget_analyzed <- data.frame()
 # Create a loop that removes the responses that are not helpful and are not
 # Numbered percents
 
-for (i in 1:nrow(budget_numbers) {
+for (i in 1:nrow(budget_numbers)) {
   
+  budget_analyzed <- str_extract_all(budget_numbers[ , 1], '\\d+')
   
 }
      
