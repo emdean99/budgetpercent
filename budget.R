@@ -52,7 +52,12 @@ typeof(budget_analyzed)
 
 # Make sure it is a data frame
 
-budget_analyzed <- rbind(budget_analyzed)
+budget_analyzed <- data.frame(cbind(budget_analyzed))
+
+# Name the columns
+
+colnames(budget_analyzed) <- "Percent"
+
 
 # Now that the data has been collected and gotten in a df, it can be analyzed
 # both in a graphical and a number/statistical form
@@ -60,7 +65,7 @@ budget_analyzed <- rbind(budget_analyzed)
 -------------------------------------------------------------------------------
 # Graph the data in a histogram
 
-histo <- ggplot(budget_analyzed)
+ggplot(budget_analyzed, aes(x="Percent")) + geom_histogram()
 
 
      
