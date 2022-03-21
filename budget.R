@@ -7,6 +7,14 @@
 -------------------------------------------------------------------------------
 
 
+
+#Import Libraries
+library(ggplot2)
+library(stringr)
+library(broom)
+library(tidymodels)
+library(dplyr)
+
 # First, import the data into a dataframe
 
 budget_raw <- read.csv('budget.csv')
@@ -36,5 +44,24 @@ for (i in 1:nrow(budget_numbers)) {
   budget_analyzed <- str_extract_all(budget_numbers[ , 1], '\\d+')
   
 }
+
+
+# Check the type of data output
+
+typeof(budget_analyzed)
+
+# Make sure it is a data frame
+
+budget_analyzed <- rbind(budget_analyzed)
+
+# Now that the data has been collected and gotten in a df, it can be analyzed
+# both in a graphical and a number/statistical form
+###############################################################################
+-------------------------------------------------------------------------------
+# Graph the data in a histogram
+
+histo <- ggplot(budget_analyzed)
+
+
      
   
