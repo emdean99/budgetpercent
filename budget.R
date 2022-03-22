@@ -65,7 +65,7 @@ colnames(budget_analyzed) <- "Percent"
 -------------------------------------------------------------------------------
 # Graph the data in a histogram
 
-ggplot(budget_analyzed, aes(x="Percent")) + geom_histogram()
+ggplot(budget_analyzed, aes(count, frequency)) + geom_histogram()
 
 
      
