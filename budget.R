@@ -14,6 +14,7 @@ library(stringr)
 library(broom)
 library(tidymodels)
 library(dplyr)
+library(qmrparser)
 
 # First, import the data into a dataframe
 
@@ -41,22 +42,31 @@ budget_analyzed <- data.frame()
 
 for (i in 1:nrow(budget_numbers)) {
   
-  budget_analyzed <- str_extract_all(budget_numbers[ , 1], '\\d+')
+  budget_thinned <- str_extract_all(budget_numbers[ , 1], '\\d+')
   
 }
 
 
 # Check the type of data output
 
-typeof(budget_analyzed)
+typeof(budget_thinned)
 
 # Make sure it is a data frame
 
-budget_analyzed <- data.frame(cbind(budget_analyzed))
+budget_thinned <- data.frame(cbind(budget_thinned))
+
+
+
+# Find if the variable is an integer by creating the new DF and assigning to it
+
+
+
+# Extract the values that are not integers using slice
+
 
 # Name the columns
 
-colnames(budget_analyzed) <- "Percent"
+colnames(budget_final) <- "Percent"
 
 
 # Now that the data has been collected and gotten in a df, it can be analyzed
@@ -65,7 +75,11 @@ colnames(budget_analyzed) <- "Percent"
 -------------------------------------------------------------------------------
 # Graph the data in a histogram
 
-ggplot(budget_analyzed, aes(count, frequency)) + geom_histogram()
+  ggplot(data = BOD,
+         mapping = aes(x = Time, 
+                       y = demand)) + 
+  geom_point(size = 5) +
+  geom_line(color = "red", size = 2)
 
 
      
