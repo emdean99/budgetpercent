@@ -57,11 +57,10 @@ budget_thinned <- data.frame(cbind(budget_thinned))
 
 
 
-# Find if the variable is an integer by creating the new DF and assigning to it
+# 
 
 
-
-# Extract the values that are not integers using slice
+budget_final <- budget_thinned[!is.na(as.numeric(as.character(budget_thinned$A))),]
 
 
 # Name the columns
