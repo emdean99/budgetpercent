@@ -51,21 +51,18 @@ for (i in 1:nrow(budget_numbers)) {
 
 typeof(budget_thinned)
 
-# Make sure it is a data frame
+# Make sure it is a data frame and name the column
 
 budget_thinned <- data.frame(cbind(budget_thinned))
 
+# Name the further Column for Analyzing
 
+colnames(budget_thinned) <- 'Percentt'
 
-# 
+# Try to get either numbers or an NA 
 
+budget_final <- budget_thinned[!is.na(as.numeric(as.character(budget_thinned$Percent))),]
 
-budget_final <- budget_thinned[!is.na(as.numeric(as.character(budget_thinned$A))),]
-
-
-# Name the columns
-
-colnames(budget_final) <- "Percent"
 
 
 # Now that the data has been collected and gotten in a df, it can be analyzed
