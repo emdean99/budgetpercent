@@ -63,19 +63,57 @@ colnames(budget_thinned) <- 'Percentt'
 
 budget_final <- budget_thinned[!is.na(as.numeric(as.character(budget_thinned$Percent))),]
 
+# Check budget_final to make sure it can be graphed
+
+typeof(budget_final)
+
+# Coerce to be a dataframe
+
+budget_final <- as.data.frame(budget_final)
+
+# Verify it worked
+
+typeof(budget_final)
+
+# Pull out the relevant numbers
+
+budget_percents <- as.data.frame(budget_final[,])
+
+# Switch so it can be easily graphed
+
+budget_transpose <- as.data.frame(t(budget_percents))
+
+# Add in a column of numbers so that easier to graph
+# In this step we are also only pulling out the percents
+# As numeric to make it graphable
+
+budget_transpose <- data.frame(Count = 1:nrow(budget_transpose), 
+                               Percent = as.numeric(budget_transpose[,1]))
+
+
+
+# Set the final variable for graphing
+
+budget_graphable <- budget_transpose
 
 
 # Now that the data has been collected and gotten in a df, it can be analyzed
 # both in a graphical and a number/statistical form
 ###############################################################################
--------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
 # Graph the data in a histogram
 
-  ggplot(data = BOD,
-         mapping = aes(x = Time, 
-                       y = demand)) + 
-  geom_point(size = 5) +
-  geom_line(color = "red", size = 2)
+histo_budget <- ggplot(data = budget_graphable,
+         mapping = aes(y = Percent)) + geom_histogram()
+
+
+
+print(histo_budget)
+
+
+# Pull out the status
+
+
 
 
      
