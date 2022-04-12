@@ -113,7 +113,7 @@ print(histo_budget)
 
 # Pull out the status
 
-
+budget_stats <- summary(budget_graphable)
 
 
      
