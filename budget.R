@@ -92,9 +92,25 @@ budget_transpose <- data.frame(Count = 1:nrow(budget_transpose),
 
 
 
+# Remove any of the percent numbers that are over 100% 5 total occurances
+
+
+budget_transpose <- budget_transpose[-c(20),]
+budget_transpose <- budget_transpose[-c(81),]
+budget_transpose <- budget_transpose[-c(220),]
+budget_transpose <- budget_transpose[-c(349),]
+budget_transpose <- budget_transpose[-c(516),]
+
+
+
+
 # Set the final variable for graphing
 
+
 budget_graphable <- budget_transpose
+
+
+
 
 
 # Now that the data has been collected and gotten in a df, it can be analyzed
@@ -115,6 +131,9 @@ print(histo_budget)
 
 budget_stats <- summary(budget_graphable)
 
+# Print summary Stats
+
+print(budget_stats)
 
      
   
