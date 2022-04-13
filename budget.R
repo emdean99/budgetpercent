@@ -119,8 +119,15 @@ budget_graphable <- budget_transpose
 #-------------------------------------------------------------------------------
 # Graph the data in a histogram
 
+
 histo_budget <- ggplot(data = budget_graphable,
-         mapping = aes(y = Percent)) + geom_histogram()
+         mapping = aes(y = Percent, color = 'blue')) + 
+  geom_histogram(color = 'blue') +
+  theme_bw() +
+  coord_flip() +
+  labs(x = 'Percent of the budget',
+       y = "Number of responses",
+       title = 'How much of the city budget should the park get')
 
 
 
